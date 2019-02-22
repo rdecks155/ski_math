@@ -1,0 +1,15 @@
+<!-- templates/stats.html -->
+{% extends 'base.html' %}
+
+{% block title %}Stats{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  Hi {{ user.username }}!
+  <p>You can look at stats here someday!</p>
+  <p><a href="{% url 'home' %}">home</a></p>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">login</a>
+{% endif %}
+{% endblock %}
