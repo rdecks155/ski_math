@@ -5,15 +5,15 @@
   <meta charset="utf-8">
   <title>{% block title %}Django Auth Tutorial{% endblock %}</title>
   {% load static %}
-  <link rel='stylesheet' href="{% static 'base.css' %}">
+  <link rel='stylesheet' href="{% static 'web/base.css' %}">
 </head>
 <body>
-  <div class="header">
-    SKI MATH
-  </div>
-  <main>
+  <div class="body-content">
     {% block content %}
     {% endblock %}
-  </main>
+  </div>
+  <div class="footer">
+    Ski Math 2018 All Rights Reserved
+  </div>
 </body>
 </html>
