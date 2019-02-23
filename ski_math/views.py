@@ -11,7 +11,7 @@ class SignUp(generic.CreateView):
     template_name = 'signup.html'
 
 class Game(TemplateView):
-    template_name = 'game.html'
+    template_name = 'gamelayout.html'
 
 class Stats(TemplateView):
     template_name = 'stats.html'
