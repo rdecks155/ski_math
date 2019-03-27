@@ -1,0 +1,19 @@
+<!-- templates/sstudentignup.html -->
+{% extends 'base.html' %}
+
+{% block title %}Student Sign Up{% endblock %}
+
+{% block content %}
+{%if user.is_authenticated and user.is_teacher%}
+  <h2>Student Sign up</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Sign up</button>
+  </form>
+  <a href="{% url 'home' %}">Home</a>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">login</a>
+{% endif %}
+{% endblock %}

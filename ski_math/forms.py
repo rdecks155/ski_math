@@ -15,3 +15,14 @@ class TeacherSignUpForm(UserCreationForm):
         if commit:
             user.save()
         return user
+
+class StudentSignUpForm(UserCreationForm):
+    class Meta(UserCreationForm.Meta):
+        model = CustomUser
+
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        user.is_student = True
+        if commit:
+            user.save()
+        return user
