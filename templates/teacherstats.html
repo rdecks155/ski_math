@@ -1,0 +1,25 @@
+<!-- templates/teacherstats.html -->
+{% extends 'base.html' %}
+
+{% block title %}Teacher Stats{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated and user.is_teacher%}
+  Hi {{ user.username }}!
+  <p>Students</p>
+  {% if student_list %}
+    <ul>
+      {% for student in student_list %}
+        <li><a>{{student.username}}</a></li>
+      {% endfor %}
+    </ul>
+    <p><a href="{% url 'home' %}">home</a></p>
+  {% else %}
+    <p>No students are available.</p>
+    <p><a href="{% url 'home' %}">home</a></p>
+  {% endif %}
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">login</a>
+{% endif %}
+{% endblock %}

@@ -13,6 +13,7 @@
 {% elif user.is_authenticated and user.is_teacher%}
   Welcome {{ user.username }}!
   <p class="button"><a href="{% url 'studentsignup' %}">create student</a></p>
+  <p class="button"><a href="{% url 'teacherstats' %}">teacher stats</a></p>
   <p class="button"><a href="{% url 'logout' %}">logout</a></p>
   <p class="button"><a href="{% url 'password_reset' %}">reset password</a></p>
 {% else %}

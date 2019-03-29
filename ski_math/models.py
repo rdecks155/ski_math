@@ -9,3 +9,17 @@ class CustomUser(AbstractUser):
 
     def __str__(self):
         return self.username
+
+class Game(models.Model):
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, primary_key=True)
+    level = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.level
+
+class Student(models.Model):
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, primary_key=True)
+    games = models.ForeignKey(Game, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.user
