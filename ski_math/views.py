@@ -27,6 +27,12 @@ class GameView(TemplateView):
 class Stats(TemplateView):
     template_name = 'stats.html'
 
+    def get(self, request):
+        current_user = request.user
+        account_info = CustomUser.objects.filter(id__exact=current_user.id)
+        context = {'account_info': account_info}
+        return render(request, 'stats.html', context)
+
 class TeacherStats(TemplateView):
     model = Student
     context_object_name = 'student'

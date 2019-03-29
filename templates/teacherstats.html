@@ -8,11 +8,16 @@
   Hi {{ user.username }}!
   <p>Students</p>
   {% if student_list %}
-    <ul>
-      {% for student in student_list %}
-        <li><a>{{student.username}}</a></li>
+    <table>
+        <tr>
+            <th>username</th>
+        </tr>
+        {% for student in student_list %}
+        <tr>
+          <td>{{student.username}}</td>
+        </tr>
       {% endfor %}
-    </ul>
+    </table>
     <p><a href="{% url 'home' %}">home</a></p>
   {% else %}
     <p>No students are available.</p>
