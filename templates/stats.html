@@ -4,10 +4,28 @@
 {% block title %}Stats{% endblock %}
 
 {% block content %}
-{% if user.is_authenticated %}
+{% if user.is_authenticated and user.is_student%}
   Hi {{ user.username }}!
-  <p>You can look at stats here someday!</p>
-  <p><a href="{% url 'home' %}">home</a></p>
+  {% if account_info %}
+    <table>
+        <tr>
+            <th>id</th>
+            <th>username</th> 
+            <th>is_student</th>
+        </tr>
+        {% for account in account_info %}
+        <tr>
+          <td>{{account.id}}</td>
+          <td>{{account.username}}</td>
+          <td>{{account.is_student}}</td>
+        </tr>
+      {% endfor %}
+    </table>
+    <p><a href="{% url 'home' %}">home</a></p>
+  {% else %}
+    <p>No info available.</p>
+    <p><a href="{% url 'home' %}">home</a></p>
+  {% endif %}
 {% else %}
   <p>You are not logged in</p>
   <a href="{% url 'login' %}">login</a>
