@@ -6,9 +6,10 @@
 {% block content %}
 {% if user.is_authenticated and user.is_teacher%}
   Hi {{ user.username }}!
-  <p>Students</p>
+  <h1><p>Students</p></h1>
   {% if student_list %}
     <table>
+      <table align="center">
         <tr>
             <th>username</th>
         </tr>
@@ -18,13 +19,15 @@
         </tr>
       {% endfor %}
     </table>
-    <p><a href="{% url 'home' %}">home</a></p>
+    <div class = "midbottom">
+    <p><a href="{% url 'home' %}">home</a></p></div>
   {% else %}
-    <p>No students are available.</p>
-    <p><a href="{% url 'home' %}">home</a></p>
+    <h1><p>No students are available.</p></h1>
+    <div class = "midbottom">
+    <p><a href="{% url 'home' %}">home</a></p></div>
   {% endif %}
 {% else %}
-  <p>You are not logged in</p>
-  <a href="{% url 'login' %}">login</a>
+  <h1><p>You are not logged in</p></h1>
+  <h1><a href="{% url 'login' %}">login</a></h1>
 {% endif %}
 {% endblock %}

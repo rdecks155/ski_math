@@ -8,6 +8,7 @@
   Hi {{ user.username }}!
   {% if account_info %}
     <table>
+      <table align="center">
         <tr>
             <th>id</th>
             <th>username</th> 
@@ -21,10 +22,12 @@
         </tr>
       {% endfor %}
     </table>
-    <p><a href="{% url 'home' %}">home</a></p>
+    <div class = "midbottom">
+    <p><a href="{% url 'home' %}">home</a></p></div>
   {% else %}
     <p>No info available.</p>
-    <p><a href="{% url 'home' %}">home</a></p>
+    <div class = "midbottom">
+    <p><a href="{% url 'home' %}">home</a></p></div>
   {% endif %}
 {% else %}
   <p>You are not logged in</p>
