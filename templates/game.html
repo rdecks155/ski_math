@@ -7,10 +7,10 @@
 {% if user.is_authenticated and user.is_student%}
   Hi {{ user.username }}!
   <p>You can play the game here someday!</p>
-  <p><a href="{% url 'home' %}">home</a></p>
+  <p><a href="{% url 'home' %}"><button>home</button></a></p>
 {% else %}
 <div class = "center">
   <p>You are not logged in</p>
-  <a href="{% url 'login' %}">login</a></div>
+  <a href="{% url 'login' %}"><button>login</button></a></div>
 {% endif %}
 {% endblock %}

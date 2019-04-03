@@ -10,24 +10,24 @@
   <div class="center"><button class="playbutton">
   <h1><a href="{% url 'game' %}">Play Game</a></h1></div></button>
   <div class="midbottom">
-  <h2><p class="button"><a href="{% url 'stats' %}">Gameplay History</a></p></h2></div>
+  <h2><p class="button"><a href="{% url 'stats' %}"><button>History</button></a></p></h2></div>
   <div class="bleft">
-<h3><p class="button"><a href="{% url 'logout' %}">logout</a></p></h3></div>
+<h3><p class="button"><a href="{% url 'logout' %}"><button>logout</button></a></p></h3></div>
 <div class="bright">
-  <h4><p class="button"><a href="{% url 'password_reset' %}">reset password</a></p></h4></div>
+  <h4><p class="button"><a href="{% url 'password_reset' %}"><button>reset password</button></a></p></h4></div>
 {% elif user.is_authenticated and user.is_teacher%}
   Welcome {{ user.username }}!
   <div class="center"><button class="playbutton">
-<h1><p class="button"><a href="{% url 'studentsignup' %}">Create student</a></p></h1></div></button>
+<h1><p class="button"><a href="{% url 'studentsignup' %}">create student</a></p></h1></div></button>
 <div class="midbottom">
-  <h2><p class="button"><a href="{% url 'teacherstats' %}">Registered Students</a></p></h2></div>
+  <h2><p class="button"><a href="{% url 'teacherstats' %}"><button>registered students</button></a></p></h2></div>
   <div class="bleft">
-  <h3><p class="button"><a href="{% url 'logout' %}">logout</a></p></h3></div>
+  <h3><p class="button"><a href="{% url 'logout' %}"><button>logout</button></a></p></h3></div>
   <div class="bright">
-  <h4><p class="button"><a href="{% url 'password_reset' %}">reset password</a></p></h4></div>
+  <h4><p class="button"><a href="{% url 'password_reset' %}"><button>reset password</button></a></p></h4></div>
 {% else %}
 <div class = "center">
   <h1><p>You are not logged in</p></h1>
-  <h1><a href="{% url 'login' %}">Login</a></h1></div>
+  <h1><a href="{% url 'login' %}"><button>Login</button></a></h1></div>
 {% endif %}
 {% endblock %}

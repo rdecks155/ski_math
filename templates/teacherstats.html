@@ -20,14 +20,14 @@
       {% endfor %}
     </table>
     <div class = "midbottom">
-    <p><a href="{% url 'home' %}">home</a></p></div>
+    <p><a href="{% url 'home' %}"><button>home</button></a></p></div>
   {% else %}
     <h1><p>No students are available.</p></h1>
     <div class = "midbottom">
-    <p><a href="{% url 'home' %}">home</a></p></div>
+    <p><a href="{% url 'home' %}"><button>home</button></a></p></div>
   {% endif %}
 {% else %}
   <h1><p>You are not logged in</p></h1>
-  <h1><a href="{% url 'login' %}">login</a></h1>
+  <h1><a href="{% url 'login' %}"><button>home</button></a></h1>
 {% endif %}
 {% endblock %}
