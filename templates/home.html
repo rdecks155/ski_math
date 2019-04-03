@@ -26,7 +26,8 @@
   <div class="bright">
   <h4><p class="button"><a href="{% url 'password_reset' %}">reset password</a></p></h4></div>
 {% else %}
+<div class = "center">
   <h1><p>You are not logged in</p></h1>
-  <h1><a href="{% url 'login' %}">login</a></h1>
+  <h1><a href="{% url 'login' %}">Login</a></h1></div>
 {% endif %}
 {% endblock %}
