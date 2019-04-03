@@ -1,7 +1,7 @@
 <!-- templates/stats.html -->
 {% extends 'base.html' %}
 
-{% block title %}Stats{% endblock %}
+{% block title %}Gameplay History{% endblock %}
 
 {% block content %}
 {% if user.is_authenticated and user.is_student%}
@@ -10,15 +10,31 @@
     <table>
       <table align="center">
         <tr>
-            <th>id</th>
-            <th>username</th> 
-            <th>is_student</th>
+            <th>user_id</th>
+            <th>High Score</th> 
+            <th>Addition High Score</th>
+            <th>Subtraction High Score</th>
+            <th>Recognition High Score</th>
+            <th>Highest Level</th>
+            <th>Addition Level</th>
+            <th>Subtraction Level</th>
+            <th>Recognition Level</th>
+            <th>Level Highest Score</th>
+            <th>Current Score</th>
         </tr>
         {% for account in account_info %}
         <tr>
-          <td>{{account.id}}</td>
-          <td>{{account.username}}</td>
-          <td>{{account.is_student}}</td>
+          <td>{{account.user_id}}</td>
+          <td>{{account.highestScore}}</td>
+          <td>{{account.addHighestScore}}</td>
+          <td>{{account.subHighestScore}}</td>
+          <td>{{account.recHighestScore}}</td>
+          <td>{{account.highestLevel}}</td>
+          <td>{{account.addLevel}}</td>
+          <td>{{account.subLevel}}</td>
+          <td>{{account.recLevel}}</td>
+          <td>{{account.levelHighestScore}}</td>
+          <td>{{account.currentScore}}</td>
         </tr>
       {% endfor %}
     </table>
