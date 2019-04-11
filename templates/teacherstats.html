@@ -11,12 +11,34 @@
     <table>
       <table align="center">
         <tr>
-            <th>username</th>
-        </tr>
+          <th>username</th>
+          <th>user_id</th>
+          <th>High Score</th> 
+          <th>Addition High Score</th>
+          <th>Subtraction High Score</th>
+          <th>Recognition High Score</th>
+          <th>Highest Level</th>
+          <th>Addition Level</th>
+          <th>Subtraction Level</th>
+          <th>Recognition Level</th>
+          <th>Level Highest Score</th>
+          <th>Current Score</th>
+      </tr>
         {% for student in student_list %}
         <tr>
-          <td>{{student.username}}</td>
-        </tr>
+            <td>{{student.user.username}}</td>
+            <td>{{student.user_id}}</td>
+            <td>{{student.highestScore}}</td>
+            <td>{{student.addHighestScore}}</td>
+            <td>{{student.subHighestScore}}</td>
+            <td>{{student.recHighestScore}}</td>
+            <td>{{student.highestLevel}}</td>
+            <td>{{student.addLevel}}</td>
+            <td>{{student.subLevel}}</td>
+            <td>{{student.recLevel}}</td>
+            <td>{{student.levelHighestScore}}</td>
+            <td>{{student.currentScore}}</td>
+          </tr>
       {% endfor %}
     </table>
     <div class = "midbottom">

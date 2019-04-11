@@ -12,6 +12,8 @@ from django.views.generic import (CreateView, DeleteView, DetailView, ListView, 
 from django.core import serializers 
 from django.http import HttpResponse
 import json
+from django.views.decorators.csrf import csrf_exempt
+from urllib.parse import parse_qs
 
 class SignUp(generic.CreateView):
     form_class = TeacherSignUpForm
@@ -41,8 +43,10 @@ class TeacherStats(TemplateView):
     template_name = 'teacherstats.html'
 
     def get(self, request):
-        student_list = CustomUser.objects.filter(is_student__exact=True)
-        context = {'student_list': student_list}
+        student_data = Student.objects.all()
+        print("student data: ", student_data)
+        context = {'student_list': student_data}
+        print("context", context)
         return render(request, 'teacherstats.html', context)
 
 def PlayerHistory(request):
@@ -51,7 +55,21 @@ def PlayerHistory(request):
     student_list = list(student)
     return JsonResponse(student_list, safe=False)
 
+@csrf_exempt
 def WriteHistory(request):
     if request.method == 'POST':
-        print('Raw Data: "%s"' % request.body)   
+        current_user = request.user
+        data = parse_qs(request.body.decode("utf-8"))
+        # print("Data: ", data)
+        Student.objects.filter(user_id__exact=current_user.id).update(highestScore = data['highestScore'][0])
+        Student.objects.filter(user_id__exact=current_user.id).update(addHighestScore = data['addHighestScore'][0])
+        Student.objects.filter(user_id__exact=current_user.id).update(subHighestScore = data['subHighestScore'][0])
+        Student.objects.filter(user_id__exact=current_user.id).update(recHighestScore = data['recHighestScore'][0])
+        Student.objects.filter(user_id__exact=current_user.id).update(addLevel = data['addLevel'][0])
+        Student.objects.filter(user_id__exact=current_user.id).update(subLevel = data['subLevel'][0])
+        Student.objects.filter(user_id__exact=current_user.id).update(recLevel = data['recLevel'][0])
+        Student.objects.filter(user_id__exact=current_user.id).update(highestLevel = data['highestLevel'][0])
+        Student.objects.filter(user_id__exact=current_user.id).update(levelHighestScore = data['levelHighestScore'][0])
+        Student.objects.filter(user_id__exact=current_user.id).update(currentScore = data['currentScore'][0])
+
     return HttpResponse("OK")
