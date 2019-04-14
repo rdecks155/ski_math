@@ -12,7 +12,8 @@
   <div class="midbottom">
   <h2><p class="button"><a href="{% url 'stats' %}"><button>History</button></a></p></h2></div>
   <div class="bleft">
-<h3><p class="button"><a href="{% url 'logout' %}"><button>logout</button></a></p></h3></div>
+  <h3><p class="button"><a href="{% url 'logout' %}"><button>logout</button></a></p></h3>
+  <h4><p class="button"><a href="{% url 'certificate' %}"><button>Print Certificate</button></a></p></h4></div>
 <div class="bright">
   <h4><p class="button"><a href="{% url 'password_reset' %}"><button>reset password</button></a></p></h4></div>
 {% elif user.is_authenticated and user.is_teacher%}

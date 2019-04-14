@@ -11,6 +11,7 @@ urlpatterns = [
     path('stats/', views.Stats.as_view(), name='stats'),
     path('studentsignup/', views.studentSignUp.as_view(), name='studentsignup'),
     path('teacherstats', views.TeacherStats.as_view(), name='teacherstats'),
-    path('playerhistory/', views.PlayerHistory, name='playerhistory'),
-    path('game/ski_math/writeplayer', views.WriteHistory, name='writeplayer')
+    path('game/playerhistory/', views.PlayerHistory, name='playerhistory'),
+    path('game/ski_math/writeplayer', views.WriteHistory, name='writeplayer'),
+    path('certificate/', views.Certificate, name='certificate')
 ]
