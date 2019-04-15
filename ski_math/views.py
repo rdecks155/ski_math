@@ -60,18 +60,37 @@ def WriteHistory(request):
     if request.method == 'POST':
         current_user = request.user
         data = parse_qs(request.body.decode("utf-8"))
-        # print("Data: ", data)
-        Student.objects.filter(user_id__exact=current_user.id).update(highestScore = data['highestScore'][0])
-        Student.objects.filter(user_id__exact=current_user.id).update(addHighestScore = data['addHighestScore'][0])
-        Student.objects.filter(user_id__exact=current_user.id).update(subHighestScore = data['subHighestScore'][0])
-        Student.objects.filter(user_id__exact=current_user.id).update(recHighestScore = data['recHighestScore'][0])
-        Student.objects.filter(user_id__exact=current_user.id).update(addLevel = data['addLevel'][0])
-        Student.objects.filter(user_id__exact=current_user.id).update(subLevel = data['subLevel'][0])
-        Student.objects.filter(user_id__exact=current_user.id).update(recLevel = data['recLevel'][0])
-        Student.objects.filter(user_id__exact=current_user.id).update(highestLevel = data['highestLevel'][0])
-        Student.objects.filter(user_id__exact=current_user.id).update(levelHighestScore = data['levelHighestScore'][0])
-        Student.objects.filter(user_id__exact=current_user.id).update(currentScore = data['currentScore'][0])
-
+        print("Data: ", data)
+        # Student.objects.filter(user_id__exact=current_user.id).update(highestScore = data['highestScore'][0])
+        # Student.objects.filter(user_id__exact=current_user.id).update(addHighestScore = data['addHighestScore'][0])
+        # Student.objects.filter(user_id__exact=current_user.id).update(subHighestScore = data['subHighestScore'][0])
+        # Student.objects.filter(user_id__exact=current_user.id).update(recHighestScore = data['recHighestScore'][0])
+        # Student.objects.filter(user_id__exact=current_user.id).update(addLevel = data['addLevel'][0])
+        # Student.objects.filter(user_id__exact=current_user.id).update(subLevel = data['subLevel'][0])
+        # Student.objects.filter(user_id__exact=current_user.id).update(recLevel = data['recLevel'][0])
+        # Student.objects.filter(user_id__exact=current_user.id).update(highestLevel = data['highestLevel'][0])
+        # Student.objects.filter(user_id__exact=current_user.id).update(levelHighestScore = data['levelHighestScore'][0])
+        # Student.objects.filter(user_id__exact=current_user.id).update(currentScore = data['currentScore'][0])
+        if int(data['highestScore'][0]) > Student.objects.filter(user_id__exact=current_user.id)[0].highestScore:
+            Student.objects.filter(user_id__exact=current_user.id).update(highestScore = data['highestScore'][0])
+        if int(data['addHighestScore'][0]) > Student.objects.filter(user_id__exact=current_user.id)[0].addHighestScore:
+            Student.objects.filter(user_id__exact=current_user.id).update(addHighestScore = data['addHighestScore'][0])
+        if int(data['subHighestScore'][0]) > Student.objects.filter(user_id__exact=current_user.id)[0].subHighestScore:
+            Student.objects.filter(user_id__exact=current_user.id).update(subHighestScore = data['subHighestScore'][0])
+        if int(data['recHighestScore'][0]) > Student.objects.filter(user_id__exact=current_user.id)[0].recHighestScore:
+            Student.objects.filter(user_id__exact=current_user.id).update(recHighestScore = data['recHighestScore'][0])
+        if int(data['addLevel'][0]) > Student.objects.filter(user_id__exact=current_user.id)[0].addLevel:
+            Student.objects.filter(user_id__exact=current_user.id).update(addLevel = data['addLevel'][0])
+        if int(data['subLevel'][0]) > Student.objects.filter(user_id__exact=current_user.id)[0].subLevel:
+            Student.objects.filter(user_id__exact=current_user.id).update(subLevel = data['subLevel'][0])
+        if int(data['recLevel'][0]) > Student.objects.filter(user_id__exact=current_user.id)[0].recLevel:
+            Student.objects.filter(user_id__exact=current_user.id).update(revLevel = data['recLevel'][0])
+        if int(data['highestLevel'][0]) > Student.objects.filter(user_id__exact=current_user.id)[0].highestLevel:
+            Student.objects.filter(user_id__exact=current_user.id).update(highestLevel = data['highestLevel'][0])
+        if int(data['levelHighestScore'][0]) > Student.objects.filter(user_id__exact=current_user.id)[0].levelHighestScore:
+            Student.objects.filter(user_id__exact=current_user.id).update(levelHighestScore = data['levelHighestScore'][0])
+        if int(data['currentScore'][0]) > Student.objects.filter(user_id__exact=current_user.id)[0].currentScore:
+            Student.objects.filter(user_id__exact=current_user.id).update(currentScore = data['currentScore'][0])
     return HttpResponse("OK")
 
 from io import BytesIO
