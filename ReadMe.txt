@@ -6,6 +6,7 @@ For Mac's:
 1. make sure you have python3 and pipenv installed
 2. clone git repository 
 3. install django in directory
+4. install reportlab in directory (pip install reportlab)
 4. create and open pipenv environment for project (pipenv shell)
 5. apply migrations (python3 manage.py migrations)
 6. run server (python3 manage.py runserver)
