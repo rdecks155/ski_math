@@ -1,6 +1,7 @@
 .body-content {
   
-    background: url(/static/Snow-Background.png);
+    background: url(/static/Arrow2.png), url(/static/Snow-Background.png);
+    background-repeat: no-repeat, repeat;
     padding: 35px;
     background-origin: padding-box;
     color: rgb(255, 255, 255);
