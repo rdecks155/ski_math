@@ -60,7 +60,7 @@ def WriteHistory(request):
     if request.method == 'POST':
         current_user = request.user
         data = parse_qs(request.body.decode("utf-8"))
-        print("Data: ", data)
+        # print("Data: ", data)
         # Student.objects.filter(user_id__exact=current_user.id).update(highestScore = data['highestScore'][0])
         # Student.objects.filter(user_id__exact=current_user.id).update(addHighestScore = data['addHighestScore'][0])
         # Student.objects.filter(user_id__exact=current_user.id).update(subHighestScore = data['subHighestScore'][0])
