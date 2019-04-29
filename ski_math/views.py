@@ -44,9 +44,7 @@ class TeacherStats(TemplateView):
 
     def get(self, request):
         student_data = Student.objects.all()
-        print("student data: ", student_data)
         context = {'student_list': student_data}
-        print("context", context)
         return render(request, 'teacherstats.html', context)
 
 def PlayerHistory(request):
@@ -84,7 +82,7 @@ def WriteHistory(request):
         if int(data['subLevel'][0]) > Student.objects.filter(user_id__exact=current_user.id)[0].subLevel:
             Student.objects.filter(user_id__exact=current_user.id).update(subLevel = data['subLevel'][0])
         if int(data['recLevel'][0]) > Student.objects.filter(user_id__exact=current_user.id)[0].recLevel:
-            Student.objects.filter(user_id__exact=current_user.id).update(revLevel = data['recLevel'][0])
+            Student.objects.filter(user_id__exact=current_user.id).update(recLevel = data['recLevel'][0])
         if int(data['highestLevel'][0]) > Student.objects.filter(user_id__exact=current_user.id)[0].highestLevel:
             Student.objects.filter(user_id__exact=current_user.id).update(highestLevel = data['highestLevel'][0])
         if int(data['levelHighestScore'][0]) > Student.objects.filter(user_id__exact=current_user.id)[0].levelHighestScore:
